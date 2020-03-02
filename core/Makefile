@@ -38,6 +38,6 @@ clean:
 
 fclean: clean
 	@echo Clean $(NAME)
-	@rm -rf $(NAME)
+	@rm -rf ../$(NAME)
 
 re: fclean all
