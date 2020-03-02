@@ -1,41 +1,23 @@
 ##
 ## EPITECH PROJECT, 2019
-## standard makefile
+## general makefile
 ## File description:
 ## Makefile
 ##
 
-SRC	=
-
-OBJ	=	$(SRC:.cpp=.o)
-
-HEADER	=	include/
-
-CC	=	@g++
-
-CFLAGS	=	-Wall -Wextra -Werror
-
-CPPFLAGS	=	-ldl -I $(HEADER)
-
 NAME	=	arcade
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re arcade
 
-all: $(NAME)
+all:	$(NAME)
 
-$(NAME): $(OBJ)
-	@echo compile $(NAME)
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
-
-%.o: %.cpp
-	@$(CC) -o $@ -c $< $(CFLAGS)
+$(NAME):
+	make -C core
 
 clean:
-	@echo Clean .o, $(NAME)
-	@rm -rf $(OBJ)
+	make clean -C core
 
-fclean: clean
-	@echo Clean $(NAME)
-	@rm -rf $(NAME)
+fclean:	clean
+	make fclean -C core
 
-re: fclean all
+re:	fclean all

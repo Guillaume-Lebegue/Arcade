@@ -16,7 +16,7 @@ int error(error_id_t id)
         std::cout << "Try './arcade --help' for more information."<< std::endl;
         break;
     case ERR_INVALID_INITIAL :
-        std::cout << "Couldn't open initial library." << std::endl;
+        std::cout << "Couldn't access the initial library." << std::endl;
         std::cout << "Try './arcade --help' for more information."<< std::endl;
         break;
     default :

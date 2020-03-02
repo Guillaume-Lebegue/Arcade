@@ -8,6 +8,12 @@
 #include <unistd.h>
 #include "../include/Arcade.hpp"
 
+static int arcade(std::string dynlib)
+{
+    dynlib=dynlib;
+    return (SUCCESS);
+}
+
 static bool endsWith(std::string const &s, std::string const &end)
 {
     return (s.length() >= end.length() &&
@@ -31,5 +37,5 @@ int main(int ac, char **av)
         return (help());
     if (access(av[1], R_OK) != SUCCESS || !endsWith(dynlib, ".so"))
         return (error(ERR_INVALID_INITIAL));
-    return (SUCCESS);
+    return (arcade(dynlib));
 }

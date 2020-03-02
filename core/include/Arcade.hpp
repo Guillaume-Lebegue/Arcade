@@ -17,7 +17,7 @@ typedef enum {
     FAILURE = 84,
 } return_values_t;
 
-typedef unsigned int uint;
+typedef unsigned int  uint;
 typedef unsigned char uchar;
 
 int error(error_id_t id);

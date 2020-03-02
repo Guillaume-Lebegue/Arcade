@@ -1,32 +1,33 @@
 ##
-## EPITECH PROJECT, 2019
+## EPITECH PROJECT, 2020
 ## core makefile
 ## File description:
 ## Makefile
 ##
 
-SRC	=	src/Error.cpp		\
-		src/ArcadeMain.cpp	\
+SRC		=	src/Error.cpp		\
+			src/ArcadeMain.cpp	\
 
-OBJ	=	$(SRC:.cpp=.o)
+OBJ		=	$(SRC:.cpp=.o)
 
-HEADER	=	include/
+HEADER		=	include/
 
-CC	=	@g++
+CC		=	@g++
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 CPPFLAGS	=	-ldl -I $(HEADER)
 
-NAME	=	arcade
+NAME		=	arcade
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re arcade
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo compile $(NAME)
 	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+	@mv $(NAME) ..
 
 %.o: %.cpp
 	@$(CC) -o $@ -c $< $(CFLAGS)
