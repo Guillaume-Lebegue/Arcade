@@ -9,8 +9,8 @@
 #define IDISPLAYELEM_HPP_
 
 typedef struct {
-	int x,
-	int y
+	int x;
+	int y;
 } position_t;
 
 class IDisplayElem {
