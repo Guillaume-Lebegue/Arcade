@@ -13,7 +13,7 @@
 
 class IDisplayModule {
 	public:
-		virtual IDisplayModule() = default;
+		virtual ~IDisplayModule() = default;
 
 		virtual int loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
 		virtual int getInput(void) = 0;

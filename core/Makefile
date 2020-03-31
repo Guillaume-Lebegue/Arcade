@@ -7,16 +7,20 @@
 
 SRC		=	src/Error.cpp		\
 			src/ArcadeMain.cpp	\
+			src/Arcade.cpp		\
+			src/DLLoader.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
 HEADER		=	include/
 
+MHEADER		=	../include/
+
 CC		=	@g++
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -I $(HEADER) -I $(MHEADER)
 
-CPPFLAGS	=	-ldl -I $(HEADER)
+CPPFLAGS	=	-ldl
 
 NAME		=	arcade
 
@@ -26,7 +30,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo compile $(NAME)
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(CPPFLAGS)
 	@mv $(NAME) ..
 
 %.o: %.cpp

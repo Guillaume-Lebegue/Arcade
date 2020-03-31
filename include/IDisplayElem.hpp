@@ -15,10 +15,12 @@ typedef struct {
 
 class IDisplayElem {
 	public:
-		virtual IDisplayElem() = default;
+		virtual ~IDisplayElem() = default;
 
-		virtual int chgDisplay(bool) = 0;
+		virtual int chgDisplay(bool visible) = 0;
 		virtual int chgPos(position_t &newPos) = 0;
+		virtual bool getDisplay(void) = 0;
+		virtual position_t &getPos(void) = 0;
 
 	protected:
 	private:

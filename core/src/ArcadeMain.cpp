@@ -6,11 +6,11 @@
 */
 
 #include <unistd.h>
-#include "../include/Arcade.hpp"
+#include "Arcade.hpp"
 
 static int arcade(std::string dynlib)
 {
-    dynlib=dynlib;
+    Arcade game(dynlib);
     return (SUCCESS);
 }
 

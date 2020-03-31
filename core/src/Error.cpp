@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "../include/Arcade.hpp"
+#include "Arcade.hpp"
 
 int error(error_id_t id)
 {

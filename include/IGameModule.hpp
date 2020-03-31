@@ -15,7 +15,7 @@ class IGameModule {
 	public:
 		virtual ~IGameModule() = default;
 
-		virtual std::vector<IDisplayElem> &getDisplay(void) = 0;
+		virtual std::vector<IDisplayElem> getDisplay(void) = 0;
 		virtual int getInput(char input) = 0;
 		virtual int gameTick(void) = 0;
 };
