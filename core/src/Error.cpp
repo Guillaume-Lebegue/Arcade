@@ -11,18 +11,16 @@
 int error(error_id_t id)
 {
     switch (id) {
-    case ERR_INVALID_ARGS :
+    case ERR_INV_ARGS :
         std::cout << "Invalid number of arguments." << std::endl;
-        std::cout << "Try './arcade --help' for more information."<< std::endl;
         break;
-    case ERR_INVALID_INITIAL :
+    case ERR_INV_INITIAL :
         std::cout << "Couldn't access the initial library." << std::endl;
-        std::cout << "Try './arcade --help' for more information."<< std::endl;
         break;
     default :
         std::cout << "Unknown error." << std::endl;
-        std::cout << "Try './arcade --help' for more information."<< std::endl;
         break;
     }
+    std::cout << "Try './arcade --help' for more information."<< std::endl;
     return (FAILURE);
 }

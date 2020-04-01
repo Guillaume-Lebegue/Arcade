@@ -29,13 +29,13 @@ static int help(void)
 
 int main(int ac, char **av)
 {
-    if (ac != 2) return (error(ERR_INVALID_ARGS));
+    if (ac != 2) return (error(ERR_INV_ARGS));
 
     std::string dynlib = av[1];
 
     if (!dynlib.compare("-h") || !dynlib.compare("--help"))
         return (help());
     if (access(av[1], R_OK) != SUCCESS || !endsWith(dynlib, ".so"))
-        return (error(ERR_INVALID_INITIAL));
+        return (error(ERR_INV_INITIAL));
     return (arcade(dynlib));
 }

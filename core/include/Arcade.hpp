@@ -18,8 +18,8 @@
 #include "IDisplayElem.hpp"
 
 typedef enum {
-    ERR_INVALID_ARGS,
-    ERR_INVALID_INITIAL,
+    ERR_INV_ARGS,
+    ERR_INV_INITIAL,
 } error_id_t;
 
 typedef enum {
