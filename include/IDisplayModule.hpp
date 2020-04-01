@@ -10,14 +10,16 @@
 
 #include <vector>
 #include "IDisplayElem.hpp"
+#include "IMovedElem.hpp"
 
 class IDisplayModule {
 	public:
 		virtual ~IDisplayModule() = default;
 
-		virtual int loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
-		virtual int getInput(void) = 0;
-		virtual int display(void) = 0;
+		virtual void loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
+		virtual void getInput(void) = 0;
+		virtual void display(void) = 0;
+		virtual void getMoved(std::vector<IMovedElem> &elements) = 0
 };
 
 #endif /* !IGRAPHICALLIB_HPP_ */

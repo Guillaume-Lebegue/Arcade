@@ -10,14 +10,16 @@
 
 #include <vector>
 #include "IDisplayElem.hpp"
+#include "IMovedElem.hpp"
 
 class IGameModule {
 	public:
 		virtual ~IGameModule() = default;
 
-		virtual std::vector<IDisplayElem> getDisplay(void) = 0;
-		virtual int getInput(char input) = 0;
-		virtual int gameTick(void) = 0;
+		virtual std::vector<IDisplayElem> getGraphElem(void) = 0;
+		virtual std::vector<IMovedElem> giveMoved(void) = 0;
+		virtual void getInput(char input) = 0;
+		virtual void gameTick(void) = 0;
 };
 
 #endif /* !IGAMEMODULE_HPP_ */
