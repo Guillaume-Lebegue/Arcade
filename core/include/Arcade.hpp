@@ -33,27 +33,27 @@ typedef unsigned char uchar;
 int error(error_id_t id);
 
 class Arcade: public IArcade {
-    public:
-        Arcade(std::string &starting_graph);
-        ~Arcade();
+public:
+    Arcade(std::string &starting_graph);
+    ~Arcade();
 
-        void giveInput(char input);
-        void startLoop(void);
+    void giveInput(char input);
+    void startLoop(void);
 
-    protected:
-        void loadGame(std::string &game);
-        void loadMenu(void);
-        void loadDisplay(std::string &display);
-        void askInput(void);
-        void runTick(void);
-        void actuElem(void);
-        void loadElem(void);
-        void actuDisplay(void);
+protected:
+    void loadGame(std::string &game);
+    void loadMenu(void);
+    void loadDisplay(std::string &display);
+    void askInput(void);
+    void runTick(void);
+    void actuElem(void);
+    void loadElem(void);
+    void actuDisplay(void);
 
-    private:
-        DLLoader<IDisplayModule> *_curr_disp;
-        DLLoader<IGameModule> *_curr_game;
-        std::vector<IDisplayElem> _listElem;
+private:
+    DLLoader<IDisplayModule> *_curr_disp;
+    DLLoader<IGameModule>    *_curr_game;
+    std::vector<IDisplayElem> _listElem;
 };
 
 #endif /* !ARCADE_HPP_ */

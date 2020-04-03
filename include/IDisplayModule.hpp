@@ -5,7 +5,7 @@
 ** IGraphicalLib
 */
 
-#ifndef IDISPLAYMOCULE_HPP_
+#ifndef IDISPLAYMODULE_HPP_
 #define IDISPLAYMODULE_HPP_
 
 #include <vector>
@@ -13,13 +13,13 @@
 #include "IMovedElem.hpp"
 
 class IDisplayModule {
-	public:
-		virtual ~IDisplayModule() = default;
+public:
+    virtual ~IDisplayModule() = default;
 
-		virtual void loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
-		virtual void getInput(void) = 0;
-		virtual void display(void) = 0;
-		virtual void getMoved(std::vector<IMovedElem> &elements) = 0
+    virtual void loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
+    virtual void getInput(void) = 0;
+    virtual void display (void) = 0;
+    virtual void getMoved(std::vector<IMovedElem> &elements) = 0;
 };
 
-#endif /* !IGRAPHICALLIB_HPP_ */
+#endif /* !IDISPLAYMODULE_HPP_ */

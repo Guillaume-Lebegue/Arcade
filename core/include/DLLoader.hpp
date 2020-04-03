@@ -12,14 +12,14 @@
 
 template<typename T>
 class DLLoader {
-	public:
-		DLLoader(std::string path);
-		~DLLoader();
-		T *getInstance() const;
+public:
+    DLLoader(std::string path);
+    ~DLLoader();
+    T *getInstance() const;
 
-	private:
-		T *_instance;
-		void *_stream;
+private:
+    T    *_instance;
+    void *_stream;
 };
 
 #endif /* !DLLOADER_HPP_ */

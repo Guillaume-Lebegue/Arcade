@@ -9,17 +9,17 @@
 #define IMOVEDELEM_HPP_
 
 typedef struct {
-	int x;
-	int y;
+    int x;
+    int y;
 } position_t;
 
 class IMovedElem {
-	public:
-		virtual ~IMovedElem() = default;
+public:
+    virtual ~IMovedElem() = default;
 
-		virtual int getId(void) const = 0;
-		virtual position_t getPosition(void) const = 0;
-		virtual bool getVisible(void) const = 0;
+    virtual int        getId(void)       const = 0;
+    virtual position_t getPosition(void) const = 0;
+    virtual bool       getVisible(void)  const = 0;
 };
 
 #endif /* !IMOVEDELEM_HPP_ */
