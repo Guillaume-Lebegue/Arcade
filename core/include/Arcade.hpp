@@ -19,7 +19,7 @@
 
 typedef enum {
     ERR_INV_ARGS,
-    ERR_INV_INITIAL,
+    ERR_INV_INIT,
 } error_id_t;
 
 typedef enum {
