@@ -9,8 +9,8 @@
 #define IMOVEDELEM_HPP_
 
 typedef struct {
-    int x;
-    int y;
+    unsigned int x;
+    unsigned int y;
 } position_t;
 
 class IMovedElem {

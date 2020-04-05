@@ -16,10 +16,10 @@ class IDisplayModule {
 public:
     virtual ~IDisplayModule() = default;
 
-    virtual void loadElemToDisplay(std::vector<IDisplayElem> &elements) = 0;
+    virtual void loadElemToDisplay(std::vector<IDisplayElem *> &elements) = 0;
     virtual void getInput(void) = 0;
     virtual void display (void) = 0;
-    virtual void getMoved(std::vector<IMovedElem> &elements) = 0;
+    virtual void getMoved(std::vector<IMovedElem *> &elements) = 0;
 };
 
 #endif /* !IDISPLAYMODULE_HPP_ */

@@ -5,10 +5,13 @@
 ## Makefile
 ##
 
-SRC	=	src/Error.cpp		\
-		src/Arcade.cpp		\
-		src/DLLoader.cpp	\
-		src/MainArcade.cpp	\
+SRC	=	src/Error.cpp			\
+		src/Arcade.cpp			\
+		src/DLLoader.cpp		\
+		src/MainArcade.cpp		\
+		src/CoreDisplayElem.cpp	\
+		src/CoreMovedElem.cpp	\
+		src/Menu.cpp			\
 
 OBJ	=	$(SRC:.cpp=.o)
 
@@ -20,7 +23,7 @@ CC	=	@g++
 
 CFLAGS	=	-Wall -Wextra -Werror -I $(HEADER) -I $(MHEADER)
 
-CPPFLAGS=	-ldl
+CPPFLAGS=	-ldl -lstdc++fs
 
 NAME	=	arcade
 

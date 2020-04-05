@@ -11,12 +11,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "DLLoader.hpp"
 #include "IDisplayModule.hpp"
 #include "IGameModule.hpp"
 #include "IArcade.hpp"
 #include "IDisplayElem.hpp"
 #include "IMovedElem.hpp"
+#include "DLLoader.hpp"
+#include "Menu.hpp"
 
 typedef enum {
     ERR_INV_ARGS,
@@ -48,14 +49,16 @@ class Arcade: public IArcade {
         void askInput(void);
         void runTick(void);
         void actuElem(void);
+        void actuMoved(void);
         void loadElem(void);
         void actuDisplay(void);
 
     private:
         DLLoader<IDisplayModule> *_curr_disp;
         DLLoader<IGameModule> *_curr_game;
-        std::vector<IDisplayElem> _dispElem;
-        std::vector<IMovedElem> _movedElem;
+        std::vector<IDisplayElem *> _dispElem;
+        std::vector<IMovedElem *> _movedElem;
+        Menu _arcadeMenu;
 };
 
 #endif /* !ARCADE_HPP_ */

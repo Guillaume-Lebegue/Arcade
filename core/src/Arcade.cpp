@@ -9,7 +9,10 @@
 
 Arcade::Arcade(std::string &starting_graph) :
 _curr_disp(new DLLoader<IDisplayModule>(starting_graph)), _curr_game(nullptr)
-{}
+{
+    this->loadMenu();
+    this->startLoop();
+}
 
 Arcade::~Arcade()
 {
@@ -18,10 +21,21 @@ Arcade::~Arcade()
 }
 
 void Arcade::giveInput(char input)
-{ this->_curr_game->getInstance()->getInput(input); }
+{
+    if (this->_curr_game)
+        this->_curr_game->getInstance()->getInput(input);
+    else
+        this->_arcadeMenu.getInput(input);
+}
 
 void Arcade::startLoop(void)
-{ std::cout << "loop" << std::endl; }
+{
+    this->askInput();
+    this->runTick();
+    this->actuElem();
+    this->actuMoved();
+    this->actuDisplay();
+}
 
 void Arcade::loadGame(std::string &game)
 {
@@ -30,19 +44,42 @@ void Arcade::loadGame(std::string &game)
 }
 
 void Arcade::loadMenu(void)
-{ std::cout << "Load Menu" << std::endl; }
+{
+    std::vector<IDisplayElem *> *tmp = this->_arcadeMenu.getGraphElem();
+
+    this->_dispElem.insert(this->_dispElem.begin(), tmp->begin(), tmp->end());
+}
+
+void Arcade::loadDisplay(std::string &display)
+{
+    (void) display;
+    std::cout << "loadDisplay" << std::endl;
+}
 
 void Arcade::askInput(void)
 { this->_curr_disp->getInstance()->getInput(); }
 
 void Arcade::runTick(void)
 { this->_curr_game->getInstance()->gameTick(); }
-/*
+
 void Arcade::actuElem(void)
-{ this->_listElem = this->_curr_game->getInstance()->getDisplay(); }
-*/
+{
+    std::vector<IMovedElem *> *tmp;
+
+    if (this->_curr_game) {
+        tmp = this->_curr_game->getInstance()->giveMoved();
+        this->_movedElem.insert(this->_movedElem.begin(), tmp->begin(), tmp->end());
+    } else {
+        tmp = this->_arcadeMenu.giveMoved();
+        this->_movedElem.insert(this->_movedElem.begin(), tmp->begin(), tmp->end());
+    }
+}
+
+void Arcade::actuMoved(void)
+{ this->_curr_disp->getInstance()->getMoved(this->_movedElem); }
+
 void Arcade::loadElem(void)
-{ this->_curr_disp->getInstance()->loadElemToDisplay(this->_listElem); }
+{ this->_curr_disp->getInstance()->loadElemToDisplay(this->_dispElem); }
 
 void Arcade::actuDisplay(void)
 { this->_curr_disp->getInstance()->display(); }
