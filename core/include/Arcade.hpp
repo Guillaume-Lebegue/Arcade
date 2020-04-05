@@ -16,6 +16,7 @@
 #include "IGameModule.hpp"
 #include "IArcade.hpp"
 #include "IDisplayElem.hpp"
+#include "IMovedElem.hpp"
 
 typedef enum {
     ERR_INVALID_ARGS,
@@ -53,7 +54,8 @@ class Arcade: public IArcade {
     private:
         DLLoader<IDisplayModule> *_curr_disp;
         DLLoader<IGameModule> *_curr_game;
-        std::vector<IDisplayElem> _listElem;
+        std::vector<IDisplayElem> _dispElem;
+        std::vector<IMovedElem> _movedElem;
 };
 
 #endif /* !ARCADE_HPP_ */
