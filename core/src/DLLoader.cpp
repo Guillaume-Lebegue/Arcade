@@ -13,17 +13,17 @@
 #include "IGameModule.hpp"
 
 template<typename T>
-DLLoader<T>::DLLoader(std::string path)
+DLLoader<T>::DLLoader(std::string path, Arcade *arcade)
 {
     this->_stream = dlopen(path.c_str(), RTLD_LAZY);
     if (!this->_stream)
         throw std::invalid_argument("Dynamic lib: could'nt be opened");
 
-    T *(*entryPoint) (void) = (T *(*)(void)) dlsym(this->_stream,"entryPoint");
+    T *(*entryPoint) (Arcade *arcade) = (T *(*)(Arcade *arcade)) dlsym(this->_stream,"entryPoint");
     if (!entryPoint)
         throw std::invalid_argument("Dynamic lib: could'nt find entryPoint");
 
-    this->_instance = entryPoint();
+    this->_instance = entryPoint(arcade);
 }
 
 template<typename T>

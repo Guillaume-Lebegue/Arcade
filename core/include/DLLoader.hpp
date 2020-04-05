@@ -10,10 +10,12 @@
 
 #include <string>
 
+class Arcade;
+
 template<typename T>
 class DLLoader {
 public:
-    DLLoader(std::string path);
+    DLLoader(std::string path, Arcade *arcade);
     ~DLLoader();
     T *getInstance() const;
 

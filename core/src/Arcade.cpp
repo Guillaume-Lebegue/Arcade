@@ -8,7 +8,7 @@
 #include "Arcade.hpp"
 
 Arcade::Arcade(std::string &starting_graph) :
-_curr_disp(new DLLoader<IDisplayModule>(starting_graph)), _curr_game(nullptr)
+_curr_disp(new DLLoader<IDisplayModule>(starting_graph, this)), _curr_game(nullptr)
 {
     this->loadMenu();
     this->startLoop();
@@ -40,7 +40,7 @@ void Arcade::startLoop(void)
 void Arcade::loadGame(std::string &game)
 {
     if (this->_curr_game)  delete   (this->_curr_game);
-    this->_curr_game = new DLLoader<IGameModule>(game);
+    this->_curr_game = new DLLoader<IGameModule>(game, this);
 }
 
 void Arcade::loadMenu(void)
