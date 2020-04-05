@@ -5,6 +5,7 @@
 ** core main
 */
 
+#include <cstring>
 #include <unistd.h>
 #include "Arcade.hpp"
 
@@ -29,13 +30,11 @@ static int help(void)
 
 int main(int ac, char **av)
 {
-    if (ac != 2) return (error(ERR_INVALID_ARGS));
+    if (ac != 2) return (error(ERR_INV_ARGS));
 
-    std::string dynlib = av[1];
-
-    if (!dynlib.compare("-h") || !dynlib.compare("--help"))
+    if (!strcmp(av[1], "-h") || !strcmp(av[1], "--help"))
         return (help());
-    if (access(av[1], R_OK) != SUCCESS || !endsWith(dynlib, ".so"))
-        return (error(ERR_INVALID_INITIAL));
-    return (arcade(dynlib));
+    if (access(av[1], R_OK) != SUCCESS || !endsWith(av[1], ".so"))
+        return (error(ERR_INV_INIT));
+    return (arcade(av[1]));
 }

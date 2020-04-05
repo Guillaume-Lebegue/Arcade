@@ -5,31 +5,31 @@
 ## Makefile
 ##
 
-SRC		=	src/Error.cpp		\
-			src/ArcadeMain.cpp	\
-			src/Arcade.cpp		\
-			src/DLLoader.cpp
+SRC	=	src/Error.cpp		\
+		src/Arcade.cpp		\
+		src/DLLoader.cpp	\
+		src/MainArcade.cpp	\
 
-OBJ		=	$(SRC:.cpp=.o)
+OBJ	=	$(SRC:.cpp=.o)
 
-HEADER		=	include/
+HEADER	=	include/
 
-MHEADER		=	../include/
+MHEADER	=	../include/
 
-CC		=	@g++
+CC	=	@g++
 
-CFLAGS		=	-Wall -Wextra -Werror -I $(HEADER) -I $(MHEADER)
+CFLAGS	=	-Wall -Wextra -Werror -I $(HEADER) -I $(MHEADER)
 
-CPPFLAGS	=	-ldl
+CPPFLAGS=	-ldl
 
-NAME		=	arcade
+NAME	=	arcade
 
 .PHONY: clean fclean re arcade
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo compile $(NAME)
+	@echo Compiling \'$(NAME)\'
 	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(CPPFLAGS)
 	@mv $(NAME) ..
 
